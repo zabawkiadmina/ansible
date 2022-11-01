@@ -8,5 +8,5 @@
     - name: Remove nginx package
       service:
         name: nginx
-        state: Stopped
+        state: stopped
         enabled: False

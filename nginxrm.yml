@@ -6,6 +6,7 @@
     ansible_become_pass: Warszawa
   tasks:
     - name: Remove nginx package
-      apt:
+      service:
         name: nginx
-        state: absent
+        state: Stopped
+        enabled: False

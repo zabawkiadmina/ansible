@@ -1,7 +1,9 @@
-# apache.yml
 ---
 - hosts: webservers 
   become: True
+  remote_user: ansible
+  vars:
+    ansible_become_pass: Warszawa
   tasks:
     - name: Install packages
       apt:
@@ -12,5 +14,7 @@
         name: nginx
         state: started
         enabled: True
-...
-# We will install nginx and run the service then we will replace our own html oage with default page.
+    - name: Deploy static website
+      copy:
+        src: index.html # We have define a html page 
+        dest: /var/www/html/

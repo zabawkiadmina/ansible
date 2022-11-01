@@ -1,0 +1,16 @@
+# apache.yml
+---
+- hosts: webservers 
+  become: True
+  tasks:
+    - name: Install packages
+      apt:
+        name: "nginx"
+        state: "absent"
+    - name: Start nginx server
+      service:
+        name: nginx
+        state: stopped
+        enabled: False
+...
+# We will install nginx and run the service then we will replace our own html oage with default page.

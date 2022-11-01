@@ -1,7 +1,7 @@
 #dev.inv
 
 [webservers]
-192.168.1.70 remote_user=ansible
+192.168.1.70 remote_user=ansible ansible_become_pass='Warszawa'
 192.168.1.71 remote_user=ansible
 192.168.1.72 remote_user=ansible
 # this is the inventory file for remote server where we want to install nginx.

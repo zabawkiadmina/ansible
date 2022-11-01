@@ -10,3 +10,7 @@
         name: nginx
         state: stopped
         enabled: False
+    - name: Install packages
+      apt:
+        name: nginx
+        state: absent

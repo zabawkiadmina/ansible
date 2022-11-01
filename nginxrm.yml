@@ -5,8 +5,12 @@
   vars:
     ansible_become_pass: Warszawa
   tasks:
-    - name: Remove
+    - name: Start nginx server
+      service:
+        name: nginx
+        state: stopped
+        enabled: False
+    - name: Install packages
       apt:
         name: "nginx"
         state: "absent"
-

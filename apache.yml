@@ -15,9 +15,5 @@
         name: nginx
         state: started
         enabled: True
-    - name: Deploy static website
-      copy:
-        src: index.html # We have define a html page 
-        dest: /var/www/html/
 ...
 # We will install nginx and run the service then we will replace our own html oage with default page.

@@ -20,3 +20,7 @@
       template:
           src: templates/50unattended-upgrades
           dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    - name: Podgranie pliku z banerem
+      template:
+          src: templates/greeter.dconf-defaults
+          dest: /etc/gdm3/greeter.dconf-defaults

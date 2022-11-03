@@ -1,0 +1,21 @@
+---
+- hosts: webservers 
+  become: True
+  remote_user: ansible
+  vars:
+    ansible_become_pass: Warszawa
+  tasks:
+- name: ufw enabled
+      community.general.ufw:
+        state: "enabled"
+        policy: "deny"
+        logging: "on"
+- name: ufw rules
+      community.general.ufw:
+        rule: "allow"
+        port: "{{ item }}"
+        proto: "tcp"
+      with_items:
+        - "22"
+        - "80"
+        - "443"

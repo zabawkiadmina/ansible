@@ -1,0 +1,22 @@
+---
+- hosts: gnome
+  become: True
+  remote_user: ansible
+  vars:
+    ansible_become_pass: Warszawa
+  tasks:
+    - name: Install required packages for autoupdate
+      apt:
+        name:
+        - unattended-upgrades
+        cache_valid_time: 86400
+    - name: Enable automatic update / upgrade
+      copy:
+        content: |
+         APT::Periodic::Update-Package-Lists "1";
+         APT::Periodic::Unattended-Upgrade "1";
+        dest: /etc/apt/apt.conf.d/20auto-upgrades
+    - name: Configure unattended upgrades
+      template:
+          src: templates/50unattended-upgrades
+          dest: /etc/apt/apt.conf.d/50unattended-upgrades

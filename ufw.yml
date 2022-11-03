@@ -19,7 +19,7 @@
         - "22"
         - "80"
         - "443"
-    - name: Set timezone to Asia/Tokyo
+    - name: Set timezone to Europe/Warsaw
       community.general.timezone:
         name: Europe/Warsaw
     - name: Disable IPv6 with sysctl

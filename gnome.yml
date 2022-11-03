@@ -24,3 +24,5 @@
       template:
           src: templates/greeter.dconf-defaults
           dest: /etc/gdm3/greeter.dconf-defaults
+    - name: Timeout wygaszacza
+      ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 3

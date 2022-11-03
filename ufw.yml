@@ -20,5 +20,5 @@
         - "80"
         - "443"
     - name: Set timezone to Asia/Tokyo
-  community.general.timezone:
-    name: Europe/Warsaw
+      community.general.timezone:
+        name: Europe/Warsaw

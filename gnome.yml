@@ -5,7 +5,8 @@
 #  vars:
 #    ansible_become_pass: Mk090911
   tasks:
-    - name: Install required packages for autoupdate
+  #Aktualizacje automatyczne
+    - name: Instalacja wymaganych pakietow do autoupdate
       apt:
         name:
         - unattended-upgrades
@@ -16,13 +17,14 @@
          APT::Periodic::Update-Package-Lists "1";
          APT::Periodic::Unattended-Upgrade "1";
         dest: /etc/apt/apt.conf.d/20auto-upgrades
-    - name: Configure unattended upgrades
+ #Aktualizacje automatyczne - konfiguracja
+ - name: Konfiguracja aktualizacji automatycznych
       template:
           src: templates/50unattended-upgrades
           dest: /etc/apt/apt.conf.d/50unattended-upgrades
-    - name: Podgranie pliku z banerem
+    - name: Przekopiowanie zdefiniowanego pliku z banerem informacyjnym
       template:
           src: templates/greeter.dconf-defaults
           dest: /etc/gdm3/greeter.dconf-defaults
-    - name: Timeout wygaszacza
+    - name: Ustawieenie wygaszacza
       ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 37

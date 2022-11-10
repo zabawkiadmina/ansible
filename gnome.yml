@@ -16,7 +16,7 @@
          APT::Periodic::Update-Package-Lists "1";
          APT::Periodic::Unattended-Upgrade "1";
         dest: /etc/apt/apt.conf.d/20auto-upgrades
- - name: Konfiguracja aktualizacji automatycznych
+    - name: Konfiguracja aktualizacji automatycznych
       template:
           src: templates/50unattended-upgrades
           dest: /etc/apt/apt.conf.d/50unattended-upgrades

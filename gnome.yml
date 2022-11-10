@@ -10,7 +10,8 @@
         name:
         - unattended-upgrades
         cache_valid_time: 86400
-    - name: Enable automatic update / upgrade
+  #####################
+    - name: Przekopiowanie template
       copy:
         content: |
          APT::Periodic::Update-Package-Lists "1";
@@ -25,4 +26,4 @@
           src: templates/greeter.dconf-defaults
           dest: /etc/gdm3/greeter.dconf-defaults
     - name: Ustawieenie wygaszacza
-      ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 37
+      ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 3600

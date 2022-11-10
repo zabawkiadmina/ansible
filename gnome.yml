@@ -3,7 +3,7 @@
   become: True
   remote_user: ansible
   vars:
-#    ansible_become_pass: Kaczka830
+    ansible_become_pass: Mk090911
   tasks:
     - name: Install required packages for autoupdate
       apt:

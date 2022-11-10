@@ -1,6 +1,6 @@
 ---
 - hosts: gnome
-  become: True
+  become: False
   remote_user: ansible
   vars:
     ansible_become_pass: Mk090911

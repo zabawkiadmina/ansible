@@ -1,9 +1,9 @@
 ---
 - hosts: gnome
-  become: False
+  become: True
   remote_user: ansible
-  vars:
-    ansible_become_pass: Mk090911
+#  vars:
+#    ansible_become_pass: Mk090911
   tasks:
     - name: Install required packages for autoupdate
       apt:

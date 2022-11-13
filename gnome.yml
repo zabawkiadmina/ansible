@@ -124,6 +124,7 @@
       apt:
         name: [ 'ntp']
         state: latest
+        enabled: True
     - name: Rekomendacja 8.3 >> restart usługi ntp
       ansible.builtin.shell: sudo systemctl restart ntp.service
 #Rekomendacja 8.6

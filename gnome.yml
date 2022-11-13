@@ -57,7 +57,7 @@
 ######DOMENA
     - name: Instalacja pakietów
       apt:
-        name: [ 'sssd-ad', 'sssd-tools', 'realmd', 'adcli']
+        name: [ 'sssd-ad', 'sssd-tools', 'realmd', 'adcli' 'oddjob', 'oddjob-mkhomedir']
         state: latest
     - name: Kopiowanie pliku krb5.conf
       template:

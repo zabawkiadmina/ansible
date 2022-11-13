@@ -43,9 +43,11 @@
         proto: "tcp"
       with_items:
         - "22"
+#Rekomendacja 8.2
     - name: Set timezone to Europe/Warsaw
       community.general.timezone:
         name: Europe/Warsaw
+#Rekomendacja 8.1
     - name: Disable IPv6 with sysctl
       ansible.posix.sysctl:
          name: "{{ item }}"
@@ -56,7 +58,7 @@
         - net.ipv6.conf.all.disable_ipv6
         - net.ipv6.conf.default.disable_ipv6
         - net.ipv6.conf.lo.disable_ipv6
-######DOMENA
+#Rekomendacja 1.1
     - name: Instalacja pakietów
       apt:
         name: [ 'sssd-ad', 'sssd-tools', 'realmd', 'adcli', 'oddjob', 'oddjob-mkhomedir', 'libnss-sss', 'libpam-sss', 'samba-common-bin', 'packagekit']
@@ -119,6 +121,3 @@
         name: sshd
         state: restarted
         enabled: True
-    - name: Add sudoers
-      ansible.builtin.shell: |
-          echo "mkiljanski@mksystem.com.pl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

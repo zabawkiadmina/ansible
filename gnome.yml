@@ -120,13 +120,15 @@
       community.general.timezone:
         name: Europe/Warsaw
 #Rekomendacja 8.3
-    - name: Rekomendacja 8.3 >> Instalacja pakietów
+    - name: Rekomendacja 8.3 >> Konfiguracja
       apt:
-        name: [ 'ntp']
-        state: latest
-        enabled: True
+          template:
+          src: templates/timesyncd.conf
+          dest: /etc/systemd/timesyncd.conf
+    - name: Rekomendacja 8.3 >> aktywacja timesycd 
+      ansible.builtin.shell: sudo timedatectl set-ntp on    
     - name: Rekomendacja 8.3 >> restart usługi ntp
-      ansible.builtin.shell: sudo systemctl restart ntp.service
+      ansible.builtin.shell: sudo systemctl restart systemd-timesyncd.service
 #Rekomendacja 8.6
     - name: Rekomendacja 8.6 >> Przekopiowanie zdefiniowanego pliku z banerem informacyjnym
       template:

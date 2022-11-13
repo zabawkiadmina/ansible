@@ -57,7 +57,7 @@
 ######DOMENA
     - name: Install dependencies
       apt:
-        name: ['realmd','sssd','oddjob','oddjob-mkhomedir','adcli','krb5-user','samba-common-tools','sssd-ad']
+        name: [ 'sssd-ad', 'sssd-tools', 'realmd', 'adcli']
         state: latest
     - name: Actually join the domain
       ansible.builtin.shell: |

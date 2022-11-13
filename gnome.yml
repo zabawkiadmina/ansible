@@ -25,8 +25,11 @@
       template:
           src: templates/greeter.dconf-defaults
           dest: /etc/gdm3/greeter.dconf-defaults
+#Rekomendacja 5.1
+#Konieczna modyfikacja użytkownika z przykładu 'mmk' na docelowego użytkownika z domeny ASC
     - name: Ustawieenie wygaszacza
-      ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 3600
+      ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 600
+#Rekomendacja 7.1
     - name: ufw enabled
       community.general.ufw:
         state: "enabled"
@@ -39,8 +42,6 @@
         proto: "tcp"
       with_items:
         - "22"
-        - "80"
-        - "443"
     - name: Set timezone to Europe/Warsaw
       community.general.timezone:
         name: Europe/Warsaw

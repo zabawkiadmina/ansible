@@ -77,14 +77,14 @@
        replace: 'PasswordAuthentication yes'
     - name: Edit sshd config
       replace:
-      path: /etc/ssh/sshd_config
-      regexp: '#KerberosAuthentication no'
-      replace: 'KerberosAuthentication no'
+       path: /etc/ssh/sshd_config
+       regexp: '#KerberosAuthentication no'
+       replace: 'KerberosAuthentication no'
     - name: Edit sshd config
       replace:
-      path: /etc/ssh/sshd_config
-      regexp: '#KerberosOrLocalPasswd yes'
-      replace: 'KerberosOrLocalPasswd yes'
+       path: /etc/ssh/sshd_config
+       regexp: '#KerberosOrLocalPasswd yes'
+       replace: 'KerberosOrLocalPasswd yes'
     - name: Edit sshd config
       replace:
       path: /etc/ssh/sshd_config

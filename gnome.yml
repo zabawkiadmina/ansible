@@ -6,37 +6,37 @@
   tasks:
 #Rekomendacja 6.1
 #Plik templates/50unattended-upgrades zawiera ustawienia zezwalające na instalację poprawek bezpieczeństwa
-    - name: Instalacja wymaganych pakietow do autoupdate
+    - name: Rekomendacja 6.1 >> Instalacja wymaganych pakietow do autoupdate
       apt:
         name:
         - unattended-upgrades
         cache_valid_time: 86400
-    - name: Przekopiowanie template
+    - name: Rekomendacja 6.1 >> Przekopiowanie template
       copy:
         content: |
          APT::Periodic::Update-Package-Lists "1";
          APT::Periodic::Unattended-Upgrade "1";
         dest: /etc/apt/apt.conf.d/20auto-upgrades
-    - name: Konfiguracja aktualizacji automatycznych
+    - name: Rekomendacja 6.1 >> Konfiguracja aktualizacji automatycznych
       template:
           src: templates/50unattended-upgrades
           dest: /etc/apt/apt.conf.d/50unattended-upgrades
 #Rekomendacja 8.6
-    - name: Przekopiowanie zdefiniowanego pliku z banerem informacyjnym
+    - name: Rekomendacja 8.6 >> Przekopiowanie zdefiniowanego pliku z banerem informacyjnym
       template:
           src: templates/greeter.dconf-defaults
           dest: /etc/gdm3/greeter.dconf-defaults
 #Rekomendacja 5.1
 #Konieczna modyfikacja użytkownika z przykładu 'mmk' na docelowego użytkownika z domeny ASC
-    - name: Ustawienie wygaszacza
+    - name: ekomendacja 5.1 >> Ustawienie wygaszacza
       ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 600
 #Rekomendacja 7.1
-    - name: ufw enabled
+    - name: Rekomendacja 7.1 >> aktywacja firewall
       community.general.ufw:
         state: "enabled"
         policy: "deny"
         logging: "on"
-    - name: ufw rules
+    - name: Rekomendacja 7.1 >> dodanie reguł firewall
       community.general.ufw:
         rule: "allow"
         port: "{{ item }}"
@@ -45,7 +45,7 @@
         - "22"
         - "123"
 #Rekomendacja 8.2
-    - name: Set timezone to Europe/Warsaw
+    - name: Rekomendacja 8.2 >> ustawienie strefy czasowejEurope/Warsaw
       community.general.timezone:
         name: Europe/Warsaw
 #Rekomendacja 8.3
@@ -60,7 +60,7 @@
     - name: Rekomendacja 8.3 >> restart usługi ntp
       ansible.builtin.shell: sudo systemctl restart ntp.service
 #Rekomendacja 8.1
-    - name: Disable IPv6 with sysctl
+    - name: Rekomendacja 8.1 >> wyłączenie IPv6 
       ansible.posix.sysctl:
          name: "{{ item }}"
          value: "1"
@@ -71,64 +71,64 @@
         - net.ipv6.conf.default.disable_ipv6
         - net.ipv6.conf.lo.disable_ipv6
 #Rekomendacja 1.1
-    - name: Instalacja pakietów
+    - name: Rekomendacja 1.1 >> Instalacja pakietów
       apt:
         name: [ 'sssd-ad', 'sssd-tools', 'realmd', 'adcli', 'oddjob', 'oddjob-mkhomedir', 'libnss-sss', 'libpam-sss', 'samba-common-bin', 'packagekit']
         state: latest
-    - name: Kopiowanie pliku krb5.conf
+    - name: Rekomendacja 1.1 >> Kopiowanie pliku krb5.conf
       template:
           src: templates/krb5.conf
           dest: /etc/krb5.conflibpam-sss
-    - name: Instalacja pakietów #2
+    - name: Rekomendacja 1.1 >> Instalacja pakietów #2
       apt:
         name: [ 'krb5-user', 'sssd-krb5']
         state: latest        
-    - name: Przekopiowanie pluginu do pam
+    - name: Rekomendacja 1.1 >> Przekopiowanie pluginu do pam
       template:
           src: templates/mkhomedir
           dest: /usr/share/pam-configs/mkhomedir
-    - name: Aktywacja mkhomedir
+    - name: Rekomendacja 1.1 >> Aktywacja mkhomedir
       ansible.builtin.shell: |
           sudo pam-auth-update --enable mkhomedir
-    - name: Actually join the domain
+    - name: Rekomendacja 1.1 >> Podłączenie do domeny
       ansible.builtin.shell: |
           echo Mk090911| sudo realm join mksystem.com.pl -v -U utechniczny
           realm list
       register: results
-    - name: See the results
+    - name: Rekomendacja 1.1 >>podgląd
       debug:
        msg: "{{ results }}"
-    - name: Edit sshd config enable password authentication
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: 'PasswordAuthentication no'
        replace: 'PasswordAuthentication yes'
-    - name: Edit sshd config
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: '#KerberosAuthentication no'
        replace: 'KerberosAuthentication no'
-    - name: Edit sshd config
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: '#KerberosOrLocalPasswd yes'
        replace: 'KerberosOrLocalPasswd yes'
-    - name: Edit sshd config
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: '#KerberosTicketCleanup yes'
        replace: 'KerberosTicketCleanup yes'
-    - name: Edit sshd config
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: '#KerberosGetAFSToken no'
        replace: 'KerberosGetAFSToken no'
-    - name: Edit sshd config
+    - name: Rekomendacja 1.1 >> edycja sshd
       replace:
        path: /etc/ssh/sshd_config
        regexp: '#KerberosUseKuserok yes'
        replace: 'KerberosUseKuserok yes'
-    - name: restart sshd
+    - name: Rekomendacja 1.1 >> restart sshd
       service:
         name: sshd
         state: restarted

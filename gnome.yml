@@ -87,19 +87,19 @@
        replace: 'KerberosOrLocalPasswd yes'
     - name: Edit sshd config
       replace:
-      path: /etc/ssh/sshd_config
-      regexp: '#KerberosTicketCleanup yes'
-      replace: 'KerberosTicketCleanup yes'
+       path: /etc/ssh/sshd_config
+       regexp: '#KerberosTicketCleanup yes'
+       replace: 'KerberosTicketCleanup yes'
     - name: Edit sshd config
       replace:
-      path: /etc/ssh/sshd_config
-      regexp: '#KerberosGetAFSToken no'
-      replace: 'KerberosGetAFSToken no'
+       path: /etc/ssh/sshd_config
+       regexp: '#KerberosGetAFSToken no'
+       replace: 'KerberosGetAFSToken no'
     - name: Edit sshd config
       replace:
-      path: /etc/ssh/sshd_config
-      regexp: '#KerberosUseKuserok yes'
-      replace: 'KerberosUseKuserok yes'
+       path: /etc/ssh/sshd_config
+       regexp: '#KerberosUseKuserok yes'
+       replace: 'KerberosUseKuserok yes'
     - name: restart sshd
       service:
       name: sshd

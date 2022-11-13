@@ -1,10 +1,10 @@
 ---
-#Należy zdefiniować host docelowy na którym będzie wykonany skrypt
+#Należy zdefiniować host docelowy na którym będzie wykonany skrypt (przyjęto nazwę gnome)
 - hosts: gnome
   become: True
+#Należy zdefiniować użytkownika docelowego z uprawnieniami sudo na zdalnej stacji (przyjęto nazwę ansible)
   remote_user: ansible
   tasks:
-
 #Rekomendacja 1.1
     - name: Rekomendacja 1.1 >> Instalacja pakietów
       apt:

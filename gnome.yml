@@ -28,7 +28,7 @@
           dest: /etc/gdm3/greeter.dconf-defaults
 #Rekomendacja 5.1
 #Konieczna modyfikacja użytkownika z przykładu 'mmk' na docelowego użytkownika z domeny ASC
-    - name: Ustawieenie wygaszacza
+    - name: Ustawienie wygaszacza
       ansible.builtin.shell: sudo -Hu mmk dbus-launch gsettings set org.gnome.desktop.session idle-delay 600
 #Rekomendacja 7.1
     - name: ufw enabled
@@ -49,11 +49,11 @@
       community.general.timezone:
         name: Europe/Warsaw
 #Rekomendacja 8.3
-     - name: Instalacja pakietów
+     - name: Rekomendacja 8.3: Instalacja pakietów
       apt:
         name: [ 'ntp']
         state: latest
-    - name: Przekopiowane template ntp.conf
+    - name: Rekomendacja 8.3: Przekopiowane template ntp.conf
       template: 
       src: ntp.conf 
       dest: /etc/ntp.conf

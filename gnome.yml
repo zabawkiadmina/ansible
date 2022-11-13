@@ -60,7 +60,7 @@
         name: ['realmd','sssd','oddjob','oddjob-mkhomedir','adcli','krb5-workstation','samba-common-tools','sssd-ad']
         state: latest
     - name: Actually join the domain
-        shell: |
+        sansible.builtin.shell: |
           echo "Mk09091" | realm join mksystem.eu -v -U Mk090911
           realm permit -g LINADMIN@redwood.com
           realm permit -g SDESK@redwood.com
@@ -105,5 +105,5 @@
       name: sshd
       state: restarted
     - name: Add sudoers
-    shell: |
+    ansible.builtin.shell: |
       echo "mkiljanski@mksystem.eu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

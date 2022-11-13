@@ -53,9 +53,9 @@
       apt:
         name: [ 'ntp']
         state: latest
-   - name: Rekomendacja 8.3 >> Przekopiowane template ntp
+    - name: Rekomendacja 8.3 >> Przekopiowane template ntp.conf
       template: 
-      src: ntp.conf 
+      src: templates/ntp.conf 
       dest: /etc/ntp.conf
       ansible.builtin.shell: sudo systemctl restart ntp.service
 #Rekomendacja 8.1

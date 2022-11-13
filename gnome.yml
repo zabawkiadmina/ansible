@@ -81,7 +81,7 @@
       regexp: '#KerberosAuthentication no'
       replace: 'KerberosAuthentication no'
     - name: Edit sshd config
-    replace:
+      replace:
       path: /etc/ssh/sshd_config
       regexp: '#KerberosOrLocalPasswd yes'
       replace: 'KerberosOrLocalPasswd yes'
@@ -91,7 +91,7 @@
       regexp: '#KerberosTicketCleanup yes'
       replace: 'KerberosTicketCleanup yes'
     - name: Edit sshd config
-    replace:
+      replace:
       path: /etc/ssh/sshd_config
       regexp: '#KerberosGetAFSToken no'
       replace: 'KerberosGetAFSToken no'

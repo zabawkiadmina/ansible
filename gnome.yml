@@ -49,11 +49,11 @@
       community.general.timezone:
         name: Europe/Warsaw
 #Rekomendacja 8.3
-    - name: Rekomendacja 8.3: Instalacja pakietów
+    - name: Rekomendacja 8.3 >> Instalacja pakietów
       apt:
         name: [ 'ntp']
         state: latest
-    - name: Rekomendacja 8.3: Przekopiowane template ntp.conf
+    - name: Rekomendacja 8.3 >> Przekopiowane template ntp.conf
       template: 
       src: ntp.conf 
       dest: /etc/ntp.conf

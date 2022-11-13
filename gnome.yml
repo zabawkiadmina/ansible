@@ -61,9 +61,9 @@
         state: latest
     - name: Actually join the domain
       ansible.builtin.shell: |
-          echo "Mk09091" | realm join mksystem.eu -v -U Mk090911
-          realm permit -g LINADMIN@redwood.com
-          realm permit -g SDESK@redwood.com
+          echo "Mk09091" | realm join mksystem.com.pl -v -U Mk090911
+#          realm permit -g LINADMIN@redwood.com
+#          realm permit -g SDESK@redwood.com
           realm list
       register: results
     - name: See the results

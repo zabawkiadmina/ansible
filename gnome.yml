@@ -1,16 +1,16 @@
 ---
+#Należy zdefiniować host docelowy na którym będzie wykonany skrypt
 - hosts: gnome
   become: True
   remote_user: ansible
-#  vars:
-#    ansible_become_pass: Mk090911
   tasks:
+#Rekomendacja 6.1
+#Plik templates/50unattended-upgrades zawiera ustawienia zezwalające na instalację poprawek bezpieczeństwa
     - name: Instalacja wymaganych pakietow do autoupdate
       apt:
         name:
         - unattended-upgrades
         cache_valid_time: 86400
-  #####################
     - name: Przekopiowanie template
       copy:
         content: |
@@ -21,6 +21,7 @@
       template:
           src: templates/50unattended-upgrades
           dest: /etc/apt/apt.conf.d/50unattended-upgrades
+#Rekomendacja 8.6
     - name: Przekopiowanie zdefiniowanego pliku z banerem informacyjnym
       template:
           src: templates/greeter.dconf-defaults

@@ -77,7 +77,7 @@
             Session:
             required                        pam_mkhomedir.so umask=0022 skel=/etc/skel
         EOF
-     - name: Actually join the domain
+    - name: Actually join the domain
       ansible.builtin.shell: |
           echo Mk090911| sudo realm join mksystem.com.pl -v -U utechniczny
           realm list

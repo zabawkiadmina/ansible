@@ -63,7 +63,7 @@
       template:
           src: templates/krb5.conf
           dest: /etc/krb5.conf
-      - name: Instalacja pakietów #2
+    - name: Instalacja pakietów #2
       apt:
         name: [ 'krb5-user', 'sssd-krb5']
         state: latest        

@@ -31,7 +31,8 @@
 # disable-restart-buttons=true
 # - Show a login welcome message
 banner-message-enable=true
-banner-message-text='Welcome123'
+#Dodaj tekst który wyświetli się użytkownikowi przy logowaniu
+banner-message-text='Altkom Software & Consulting Sp. z o.o.'
 
 # Automatic suspend
 # =================

@@ -56,7 +56,7 @@
         - net.ipv6.conf.lo.disable_ipv6
 ######DOMENA
     - name: Install dependencies
-    yum:
+    apt:
       name: ['realmd','sssd','oddjob','oddjob-mkhomedir','adcli','krb5-workstation','samba-common-tools','sssd-ad']
       state: latest
     - name: Actually join the domain

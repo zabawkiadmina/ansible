@@ -121,7 +121,6 @@
         name: Europe/Warsaw
 #Rekomendacja 8.3
     - name: Rekomendacja 8.3 >> Konfiguracja
-      apt:
           template:
           src: templates/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf

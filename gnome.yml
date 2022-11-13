@@ -101,9 +101,9 @@
       regexp: '#KerberosUseKuserok yes'
       replace: 'KerberosUseKuserok yes'
     - name: restart sshd
-    service:
+      service:
       name: sshd
       state: restarted
     - name: Add sudoers
-    ansible.builtin.shell: |
+      ansible.builtin.shell: |
       echo "mkiljanski@mksystem.eu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

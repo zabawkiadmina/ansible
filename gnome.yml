@@ -71,12 +71,12 @@
        msg: "{{ results }}"
 
     - name: Edit sshd config enable password authentication
-    replace:
-      path: /etc/ssh/sshd_config
-      regexp: 'PasswordAuthentication no'
-      replace: 'PasswordAuthentication yes'
+      replace:
+       path: /etc/ssh/sshd_config
+       regexp: 'PasswordAuthentication no'
+       replace: 'PasswordAuthentication yes'
     - name: Edit sshd config
-    replace:
+      replace:
       path: /etc/ssh/sshd_config
       regexp: '#KerberosAuthentication no'
       replace: 'KerberosAuthentication no'

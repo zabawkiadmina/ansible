@@ -74,10 +74,6 @@
     - name: Aktywacja mkhomedir
       ansible.builtin.shell: |
           sudo pam-auth-update --enable mkhomedir
-    - name: restart uslugi sssd
-      service:
-        name: sssd
-        state: restarted
     - name: Actually join the domain
       ansible.builtin.shell: |
           echo Mk090911| sudo realm join mksystem.com.pl -v -U utechniczny

@@ -56,19 +56,19 @@
         - net.ipv6.conf.lo.disable_ipv6
 ######DOMENA
     - name: Install dependencies
-    apt:
-      name: ['realmd','sssd','oddjob','oddjob-mkhomedir','adcli','krb5-workstation','samba-common-tools','sssd-ad']
-      state: latest
+       apt:
+        name: ['realmd','sssd','oddjob','oddjob-mkhomedir','adcli','krb5-workstation','samba-common-tools','sssd-ad']
+         state: latest
     - name: Actually join the domain
-    shell: |
-      echo "Mk09091" | realm join mksystem.eu -v -U Mk090911
-      realm permit -g LINADMIN@redwood.com
-      realm permit -g SDESK@redwood.com
-      realm list
-    register: results
+        shell: |
+          echo "Mk09091" | realm join mksystem.eu -v -U Mk090911
+          realm permit -g LINADMIN@redwood.com
+          realm permit -g SDESK@redwood.com
+          realm list
+      register: results
     - name: See the results
-    debug:
-      msg: "{{ results }}"
+      debug:
+       msg: "{{ results }}"
 
     - name: Edit sshd config enable password authentication
     replace:

@@ -82,7 +82,7 @@
           echo Mk090911| sudo realm join mksystem.com.pl -v -U utechniczny
           realm list
       register: results
-    - name: See the results
+     - name: See the results
       debug:
        msg: "{{ results }}"
     - name: Edit sshd config enable password authentication

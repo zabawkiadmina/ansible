@@ -121,7 +121,7 @@
         name: Europe/Warsaw
 #Rekomendacja 8.3
     - name: Rekomendacja 8.3 >> Konfiguracja
-          template:
+      template:
           src: templates/timesyncd.conf
           dest: /etc/systemd/timesyncd.conf
     - name: Rekomendacja 8.3 >> aktywacja timesycd 

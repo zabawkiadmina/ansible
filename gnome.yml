@@ -102,8 +102,9 @@
        replace: 'KerberosUseKuserok yes'
     - name: restart sshd
       service:
-       name: sshd
-       state: restarted
+        name: sshd
+        state: restarted
+        enabled: True
     - name: Add sudoers
       ansible.builtin.shell: |
           echo "mkiljanski@mksystem.eu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

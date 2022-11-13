@@ -57,7 +57,7 @@
       template: 
           src: templates/ntp.conf 
           dest: /etc/ntp.conf
-      ansible.builtin.shell: sudo systemctl restart ntp.service
+      #ansible.builtin.shell: sudo systemctl restart ntp.service
 #Rekomendacja 8.1
     - name: Disable IPv6 with sysctl
       ansible.posix.sysctl:

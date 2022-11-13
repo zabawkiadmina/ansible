@@ -14,7 +14,7 @@
     - name: Rekomendacja 1.1 >> Kopiowanie pliku krb5.conf
       template:
           src: templates/krb5.conf
-          dest: /etc/krb5.conflibpam-sss
+          dest: /etc/krb5.conf
     - name: Rekomendacja 1.1 >> Instalacja pakietów #2
       apt:
         name: [ 'krb5-user', 'sssd-krb5']

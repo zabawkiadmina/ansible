@@ -43,10 +43,21 @@
         proto: "tcp"
       with_items:
         - "22"
+        - "123"
 #Rekomendacja 8.2
     - name: Set timezone to Europe/Warsaw
       community.general.timezone:
         name: Europe/Warsaw
+#Rekomendacja 8.3
+     - name: Instalacja pakietów
+      apt:
+        name: [ 'ntp']
+        state: latest
+    - name: Przekopiowane template ntp.conf
+      template: 
+      src: ntp.conf 
+      dest: /etc/ntp.conf
+      ansible.builtin.shell: sudo systemctl restart ntp.service
 #Rekomendacja 8.1
     - name: Disable IPv6 with sysctl
       ansible.posix.sysctl:

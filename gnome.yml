@@ -107,4 +107,4 @@
         enabled: True
     - name: Add sudoers
       ansible.builtin.shell: |
-          echo "mkiljanski@mksystem.eu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+          echo "mkiljanski@mksystem.com.pl ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

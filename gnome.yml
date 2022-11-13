@@ -67,7 +67,17 @@
       apt:
         name: [ 'krb5-user', 'sssd-krb5']
         state: latest        
-    - name: Actually join the domain
+     - name: Aktywacja mkhomedir
+      ansible.builtin.shell: |
+        sudo bash -c "cat > /usr/share/pam-configs/mkhomedir" <<EOF
+            Name: activate mkhomedir
+            Default: yes
+            Priority: 900
+            Session-Type: Additional
+            Session:
+            required                        pam_mkhomedir.so umask=0022 skel=/etc/skel
+        EOF
+     - name: Actually join the domain
       ansible.builtin.shell: |
           echo Mk090911| sudo realm join mksystem.com.pl -v -U utechniczny
           realm list

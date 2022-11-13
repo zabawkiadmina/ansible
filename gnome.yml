@@ -61,7 +61,7 @@
       state: latest
   - name: Actually join the domain
     shell: |
-      echo "Start123" | realm join reaperdome -v -U Administrator
+      echo "Mk09091" | realm join mksystem.eu -v -U Mk090911
       realm permit -g LINADMIN@redwood.com
       realm permit -g SDESK@redwood.com
       realm list
@@ -106,4 +106,4 @@
       state: restarted
   - name: Add sudoers
     shell: |
-      echo "%LINADMIN@redwood.com ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+      echo "mkiljanski@mksystem.eu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
